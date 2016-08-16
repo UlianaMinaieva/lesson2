@@ -22,11 +22,13 @@ public class lesson2 {
         driver.get("http://finance.i.ua/");
         driver.manage().window().maximize();
 
+        driver.findElement(By.xpath("//span[contains(text(),'купить')]")).click();
+
         driver.findElement(By.id("fn_s1")).sendKeys("2000");
         new Select(driver.findElement(By.id("fn_c1"))).selectByVisibleText("USD");
         new Select(driver.findElement(By.id("fn_bank"))).selectByVisibleText("НБУ");
 
-        Assert.assertEquals(driver.findElement(By.id("fn_o1_1")).getAttribute("value"),"49 700,82");
+        Assert.assertEquals(driver.findElement(By.id("fn_o1_1")).getAttribute("value"),"50 230,28");
 
         driver.quit();
 
